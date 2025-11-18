@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "499ff201ed8537cc67e26201ae6954a0",
+    "content-hash": "583a6fa5c09312b7c6add545400429cf",
     "packages": [
         {
             "name": "brick/math",
@@ -5988,6 +5988,54 @@
                 }
             ],
             "time": "2024-11-21T01:49:47+00:00"
+        },
+        {
+            "name": "webstronauts/unpoly",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webstronauts/php-unpoly.git",
+                "reference": "b5509c73e6a15e2254ac9825a2f39e39708636cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webstronauts/php-unpoly/zipball/b5509c73e6a15e2254ac9825a2f39e39708636cc",
+                "reference": "b5509c73e6a15e2254ac9825a2f39e39708636cc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1",
+                "symfony/http-foundation": "^5.4|^6.4|^7.3",
+                "symfony/http-kernel": "^5.4|^6.4|^7.3"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.20",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Webstronauts\\Unpoly\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robin van der Vleuten",
+                    "email": "robin@webstronauts.com",
+                    "homepage": "https://webstronauts.com"
+                }
+            ],
+            "description": "PHP middleware for handling Javascript Unpoly Framework requests",
+            "homepage": "https://github.com/webstronauts/php-unpoly",
+            "support": {
+                "issues": "https://github.com/webstronauts/php-unpoly/issues",
+                "source": "https://github.com/webstronauts/php-unpoly/tree/v3.0.0"
+            },
+            "time": "2025-10-13T11:53:02+00:00"
         }
     ],
     "packages-dev": [
