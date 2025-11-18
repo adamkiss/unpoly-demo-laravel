@@ -58,7 +58,9 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+        return view('companies.edit', [
+			'company' => $company,
+		]);
     }
 
     /**
@@ -66,7 +68,14 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        //
+		$validated = $request->validate([
+			'name' => 'required|string|max:255',
+			'address' => 'nullable|string',
+		]);
+
+		$company->update($validated);
+
+		return redirect()->route('companies.show', $company);
     }
 
     /**
