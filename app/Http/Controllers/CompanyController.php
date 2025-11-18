@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Webstronauts\Unpoly\Unpoly;
 
 class CompanyController extends Controller
@@ -75,10 +76,14 @@ class CompanyController extends Controller
     {
 		$company->delete();
 
-		$res = redirect()->route('companies.index');
-		$up = app(Unpoly::class);
-		$up->emitEvent($res, 'company:destroyed', ['layer' => 'current',]);
-		$up->dismissLayer($res, 'current');
-		return $res;
+		return new Response(headers: [
+			'X-Up-Events' => json_encode([
+				[
+					'type' => 'company:destroyed',
+					'layer' => 'current'
+				]
+			]),
+			'X-Up-Location' => route('companies.index'),
+		]);
     }
 }
