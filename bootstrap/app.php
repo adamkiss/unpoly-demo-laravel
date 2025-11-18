@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Foundation\Application;
+use App\Http\Middleware\UnpolyMiddleware;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
@@ -11,7 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        $middleware->append(App\Http\Middleware\UnpolyMiddleware::class);
+        $middleware->append(UnpolyMiddleware::class);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

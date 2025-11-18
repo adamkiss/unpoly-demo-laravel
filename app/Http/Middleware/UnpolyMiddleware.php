@@ -21,8 +21,7 @@ class UnpolyMiddleware
 		}
 
 		$response = $next($request);
-        (new Unpoly)->decorateResponse($request, $response);
-
+        app(Unpoly::class)->decorateResponse($request, $response);
 
 		return $response;
     }

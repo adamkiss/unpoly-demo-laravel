@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Webstronauts\Unpoly\Unpoly;
 
 class CompanyController extends Controller
 {
@@ -22,7 +23,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('companies.new', []);
     }
 
     /**
@@ -30,7 +31,15 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+		$validated = $request->validate([
+			'name' => 'required|string|max:255',
+			'address' => 'nullable|string',
+		]);
+
+		$company = Company::create($validated);
+
+		return redirect()->route('companies.show', $company);
+
     }
 
     /**
@@ -38,7 +47,9 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        //
+        return view('companies.show', [
+			'company' => $company,
+		]);
     }
 
     /**
@@ -62,6 +73,12 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        //
+		$company->delete();
+
+		$res = redirect()->route('companies.index');
+		$up = app(Unpoly::class);
+		$up->emitEvent($res, 'company:destroyed', ['layer' => 'current',]);
+		$up->dismissLayer($res, 'current');
+		return $res;
     }
 }

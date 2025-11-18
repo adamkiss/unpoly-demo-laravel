@@ -1,3 +1,4 @@
+@import 'tailwindcss';
 @import 'bootstrap';
 @import 'unpoly';
 
@@ -315,6 +316,7 @@ up-modal-content {
 	background-color: #fc20;
 	outline: 10px solid #fc20;
 	z-index: 1;
+	pointer-events: none;
 }
 .new-fragment.inserted:after {
 	background-color: #fc26;
