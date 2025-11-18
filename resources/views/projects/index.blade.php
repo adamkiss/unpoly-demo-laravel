@@ -1,0 +1,60 @@
+<x-layout>
+    <div class="row align-items-center mb-4">
+  <div class="col">
+    <h2>All projects</h2>
+  </div>
+
+  <div class="col-sm-auto">
+    <%= tour_dot(position: 'left') do %>
+      <p>
+        The <i>New project</i> button has an <code>[up-layer=new]</code> attribute.
+        This causes the link destination to open in an overlay.
+      </p>
+      <p>
+        The button also defines a <i>close condition</i> using an <code>[up-accept-location]</code> attribute.
+        This causes the overlay to automatically close when it reaches the URL of a newly created project.
+      </p>
+      <p>
+        The <code>[up-on-accepted]</code> attribute causes the project list below to reload when the overlay closes.
+      </p>
+    <% end %>
+
+    <%= link_to 'New project', new_project_path, class: 'btn btn-primary',
+      'up-placeholder': '#form-placeholder',
+      'up-layer': 'new',
+      'up-accept-location': project_path('$id'),
+      'up-on-accepted': "up.reload('#projects', { placeholder: '#table-placeholder' })"
+    %>
+  </div>
+</div>
+
+<div id="projects">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Company</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td>
+            <%= link_to project.name, project,
+              'up-layer': 'new',
+              'up-accept-event': 'project:destroyed project:updated',
+              'up-on-accepted': "up.reload('#projects', { placeholder: '#table-placeholder' })",
+              'up-placeholder': '#show-placeholder'
+            %>
+          </td>
+          <td>
+            <%= project.company.name %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+</x-layout>
