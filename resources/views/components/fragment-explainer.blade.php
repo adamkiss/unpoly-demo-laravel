@@ -17,7 +17,7 @@
 
   <div class="fragment-explainer--cell d-none">
     <div class="fragment-explainer--label">Last request:</div>
-    <code class="fragment-explainer--request">GET <%= request.path %></code>
+    <code class="fragment-explainer--request">GET {{ request()->path() }}</code>
   </div>
 
   <div class="fragment-explainer--cell">

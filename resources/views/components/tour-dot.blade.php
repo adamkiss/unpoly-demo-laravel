@@ -22,7 +22,6 @@
 
 	$attrs = [
 		'class' => 'tour-dot',
-		'href' => '#',
 		'up-layer' => 'new popup',
 		'up-content' => e($html),
 		'up-position' => $attributes->get('position', 'right'),

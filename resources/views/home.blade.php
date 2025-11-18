@@ -1,20 +1,7 @@
 <x-layout>
     <h2 class="mb-4">Unpoly Demo</h2>
 
-    <ul>
-        @foreach (\App\Models\Company::all() as $c)
-            <li>
-                <strong>{{$c->name}}</strong><br>
-                <ul>
-                    @foreach ($c->projects as $p)
-                        <li>{{$p->name}} ({{$p->budget}})</li>
-                    @endforeach
-                </ul>
-            </li>
-        @endforeach
-    </ul>
-
-    <p>
+	<p>
     This is a small <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a>
     application to show off <a href="https://unpoly.com">Unpoly</a>.
     </p>

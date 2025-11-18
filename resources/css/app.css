@@ -27,7 +27,7 @@ a {
 }
 
 body {
-	margin: 5.5rem --spacer-4 7rem --spacer-4;
+	margin: 5.5rem var(--spacer-4) 7rem var(--spacer-4);
 	overflow-y: scroll;
 }
 
@@ -76,7 +76,7 @@ b, strong, th {
 
 
 .form-group {
-	margin-bottom: --spacer-3;
+	margin-bottom: var(--spacer-3);
 }
 
 .btn {
@@ -141,7 +141,7 @@ up-modal-content {
 	position: relative;
 	display: flex;
 	align-items: center;
-	gap: --spacer-3;
+	gap: var(--spacer-3);
 	border: $border-width $border-style $border-color;
 	padding: ($spacer * 0.5) $spacer;
 
@@ -230,7 +230,7 @@ up-modal-content {
 	align-items: center;
 
 
-	column-gap: --spacer-3;
+	column-gap: var(--spacer-3);
 
 	&:focus {
 		outline: none !important;
@@ -249,7 +249,7 @@ up-modal-content {
 }
 
 .task-form--error {
-	margin-top: --spacer-1;
+	margin-top: var(--spacer-1);
 	grid-area: error;
 }
 
@@ -264,7 +264,7 @@ up-modal-content {
 	bottom: 0;
 	left: 0;
 	width: 100vw;
-	border-top: 1px solid $gray-500;
+	border-top: 1px solid $gray-500 var(--cs);
 	box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 	display: flex;
 	gap: 0.6rem 1.7rem;
@@ -298,28 +298,27 @@ up-modal-content {
 }
 
 .new-fragment {
-	$new-fragment-color: #fc2;
-	$new-fragment-opacity: 0.6;
+	--new-fragment-color: #fc2;
+	--new-fragment-opacity: 60%;
 
 	position: relative;
 
-	&:after {
-		transition: all 750ms ease-out;
-		content: '';
-		position: absolute;
-		left: 0;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		background-color: rgba($new-fragment-color, 0);
-		outline: 10px solid rgba($new-fragment-color, 0);
-		z-index: 1;
-	}
-
-	&.inserted:after {
-		background-color: rgba($new-fragment-color, $new-fragment-opacity);
-		outline: 10px solid rgba($new-fragment-color, $new-fragment-opacity);
-	}
+}
+.new-fragment:after {
+	transition: all 750ms ease-out;
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #fc20;
+	outline: 10px solid #fc20;
+	z-index: 1;
+}
+.new-fragment.inserted:after {
+	background-color: #fc26;
+	outline: 10px solid #fc26;
 }
 
 .click-bubble {
