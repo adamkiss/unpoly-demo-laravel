@@ -423,10 +423,10 @@ up-modal-content {
 	border-radius: 15px;
 }
 
-@mixin spinner($size: 1em, $color: $info, $thickness: 2px) {
+@utility spinner {
 	display: inline-block;
 	vertical-align: middle;
-	width: $size;
+	width: 1em;
 	aspect-ratio: 1;
 	position: relative;
 
@@ -439,20 +439,23 @@ up-modal-content {
 		top: 0;
 		right: 0;
 		bottom: 0;
-		border: $thickness solid rgba($color, 1.0);
-		border-bottom-color: rgba($color, 0.2);
+		border: 2px solid #3d6af5;
+		border-bottom-color: #3d6af533;
 		border-radius: 50%;
 		box-sizing: border-box;
 		animation: rotation 1s linear infinite;
 		opacity: inherit;
-		@content;
 	}
-
 }
 
 .btn-spinner {
-	@include spinner(1em, white);
+	@apply spinner;
 	margin-top: -0.15em;
+
+	&:after {
+		border-color: #fff;
+		border-bottom-color: #fff3;
+	}
 
 	.btn:has(&) {
 		text-align: center;
@@ -460,17 +463,18 @@ up-modal-content {
 }
 
 .popup-spinner {
-	@include spinner($size: 2.5rem, $color: $info);
+	@apply spinner;
+	width: 2.5rem;
+
 	margin: 0.5rem 3rem 6rem 0.5rem;
 }
 
 .main-spinner {
-	@include spinner($size: 6rem, $color: $info, $thickness: 3px) {
-		transition: opacity 0.3s ease-in;
-		opacity: 1.0;
-		@starting-style {
-			opacity: 0.1;
-		}
+	@apply spinner;
+	width: 6rem;
+
+	&:after {
+		border-width: 3px;;
 	}
 
 	position: absolute;
