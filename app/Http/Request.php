@@ -13,7 +13,11 @@ class Request extends BaseRequest {
 		return parent::expectsJson();
 	}
 
-	public function isUnpolyRequest(): bool {
-		return $this->headers->has('X-Up-Version') && $this->headers->has('X-Up-Target');
+	public function unpoly(): UnpolyRequest {
+		return UnpolyRequest::getInstance($this);
+	}
+
+	public function up(): UnpolyRequest {
+		return $this->unpoly();
 	}
 }

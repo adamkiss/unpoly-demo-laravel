@@ -62,7 +62,7 @@
 
 		<x-fragment-explainer/>
 
-		@unless (request()->isUnpolyRequest())
+		@unless (request()->up()->is())
 			<x-placeholders.all />
 		@endunless
 
