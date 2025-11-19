@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Faker\Provider\Company;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,7 @@ class ProjectFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->words(rand(2,5), true),
+            'name' => fake()->catchPhrase(),
             'budget' => rand(10,250) * 1000,
         ];
     }
