@@ -43,7 +43,14 @@
 				</p>
 			</x-tour-dot>
 
-			<a href="{{ route('companies.create') }}" class="btn btn-primary" up-layer="new" up-placeholder="#form-placeholder" up-accept-location="/companies/$id" up-on-accepted="up.reload('#companies', {placeholder: '#table-placeholder { rows: 5 }'})">New company</a>
+			<a href="{{ route('companies.create') }}"
+				class="btn btn-primary"
+				up-layer="new"
+				up-placeholder="#form-placeholder"
+				up-accept-location="/companies/$id"
+				up-on-accepted="up.reload('#companies', {placeholder: '#table-placeholder { rows: 5 }'})"
+				up-on-dismissed="up.reload('#companies', { placeholder: '#table-placeholder { rows: 5 }' })"
+			>New company</a>
 		</div>
 	</div>
 
