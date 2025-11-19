@@ -85,14 +85,13 @@ class CompanyController extends Controller
     {
 		$company->delete();
 
-		return new Response(headers: [
-			'X-Up-Events' => json_encode([
-				[
-					'type' => 'company:destroyed',
-					'layer' => 'current'
-				]
-			]),
-			'X-Up-Location' => route('companies.index'),
-		]);
-    }
+		return request()->isUnpolyRequest()
+			? response()->withUnpolyEvents(
+				events: [
+					['type' => 'company:destroyed', 'layer' => 'current'],
+				],
+				location: route('companies.index'),
+			)
+			: redirect()->route('companies.index');
+	}
 }

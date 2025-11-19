@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Symfony\Component\HttpFoundation\Response;
 use Webstronauts\Unpoly\Unpoly;
 
@@ -21,7 +22,9 @@ class UnpolyMiddleware
 		}
 
 		$response = $next($request);
-        app(Unpoly::class)->decorateResponse($request, $response);
+
+		$up = app(Unpoly::class);
+        $up->decorateResponse($request, $response);
 
 		return $response;
     }
