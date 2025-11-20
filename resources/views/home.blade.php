@@ -69,14 +69,7 @@
 
     <p>
     The bar at the bottom of the screen shows links to the server-side code that rendered the last HTML response.
-    The entire application code can be cloned from the <a href="https://github.com/unpoly/unpoly-demo">unpoly-demo</a> repository.
-    </p>
-
-    <p>
-    The <b>backend</b> is written in Ruby, but don't let that scare you if you're using another language.
-    The backend only makes a few SQL queries and renders HTML using a template language similar to PHP, Moustache or Pug.
-    The community has also provided a <a href="https://unpoly-demo.spapas.net/">Python re-implementation of this demo</a> using Django.
-
+    The entire application code can be cloned from the <a href="https://github.com/adamkiss/unpoly-demo-laravel">adamkiss/unpoly-demo-laravel</a> repository.
     </p>
 
     <p>
