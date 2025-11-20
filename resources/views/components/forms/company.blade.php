@@ -4,11 +4,16 @@
 ])
 @php
 	$edit = isset($company);
+	$route = $edit
+		? route('companies.update', $company)
+		: route('companies.store');
 @endphp
 
-<form action="{{ $edit ? route('companies.update', $company) : route('companies.store') }}" method="POST"
+<form action="{{ $route }}"
+	method="POST"
 	up-submit
 	up-disable
+	up-validate up-validate-url="{{ $route . '?validate-only' }}" up-validate-method="POST"
 	up-preview="btn-spinner">
 
 	@method($edit ? 'PUT' : 'POST')
