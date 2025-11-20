@@ -2,4 +2,4 @@
 
 ## Issues
 
-- Live validation on company/project creation has been turned off, because successful validation already created resource, leading to double addition
+- `New project -> Create new company -> Accept` doesn't reload the "new project: company" select
