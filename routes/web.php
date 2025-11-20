@@ -11,8 +11,7 @@ Route::get('/', function () {
 
 Route::resource('companies', CompanyController::class);
 
-Route::resource('projects', ProjectController::class)->except(['create', 'store']);
-Route::get('projects/create/{company}', [ProjectController::class, 'create'])->name('projects.create');
-Route::post('projects/create/{company}', [ProjectController::class, 'store'])->name('projects.store');
+Route::resource('projects', ProjectController::class);
+Route::get('utils/suggest-project-name', [ProjectController::class, 'suggestName'])->name('projects.suggest-name');
 
 Route::resource('tasks', TaskController::class);

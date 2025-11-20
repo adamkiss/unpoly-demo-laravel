@@ -49,9 +49,9 @@
 					href="{{ route('projects.create', $company->id) }}" class='btn btn-primary btn-sm'
 					up-layer='new',
 					up-placeholder='#form-placeholder',
-					up-accept-location='/projects/\d+',
+					up-accept-location='/projects/$id',
 					up-on-accepted="up.reload('#projects', { placeholder: '#table-placeholder { rows: 5 }' })",
-					up-context='{"from_company": true }'
+					up-context='{"from_company": {{ $company->id }} }'
 				>Add project</a>
 			</div>
 		</div>

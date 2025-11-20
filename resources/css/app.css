@@ -56,13 +56,13 @@ b, strong, th {
 	&:not(form.up-active &) {
 
 		label {
-			color: $danger;
+			color: var(--bs-danger);
 		}
 
 		input,
 		textarea,
 		select {
-			border-color: $danger;
+			border-color: var(--bs-danger);
 		}
 
 	}
@@ -71,7 +71,7 @@ b, strong, th {
 
 .form-error {
 	&:not(form.up-active &) {
-		color: $danger;
+		color: var(--bs-danger);
 	}
 }
 

@@ -37,7 +37,11 @@ class CompanyController extends Controller {
 
 		$company = Company::create($validated);
 
-		return redirect()->route('companies.show', $company);
+		return redirect()
+			->route('companies.show', $company)
+			->with('flashes', [
+				'Company created successfully.' => 'notice'
+			]);
 	}
 
 	/**
@@ -79,7 +83,11 @@ class CompanyController extends Controller {
 
 		$company->update($validated);
 
-		return redirect()->route('companies.show', $company);
+		return redirect()
+			->route('companies.show', $company)
+			->with('flashes', [
+				'Company updated successfully.' => 'notice'
+			]);
 	}
 
 	/**
@@ -88,7 +96,7 @@ class CompanyController extends Controller {
 	public function destroy(Company $company) {
 		$company->delete();
 
-		return request()->isUnpolyRequest()
+		return request()->up()->is()
 			? response()->withUnpolyEvents(
 				events: [
 					['type' => 'company:destroyed', 'layer' => 'current'],

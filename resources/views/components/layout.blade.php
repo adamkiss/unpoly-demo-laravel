@@ -51,7 +51,9 @@
 		</div>
 
 		<div up-flashes up-anchored="right">
-			<%= flashes %>
+			@foreach (session('flashes') ?? [] as $message => $type)
+				<x-flash :type="$type" :message="$message" />
+			@endforeach
 		</div>
 
 		<div class="container">
