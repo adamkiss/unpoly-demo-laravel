@@ -28,7 +28,6 @@
 			</div>
 		</nav>
 
-
 		<div class="text-secondary" id="new-version" hidden up-anchored="right">
 			A newer version is available!
 			<a href="javascript:location.reload()" class="btn btn-secondary btn-sm ms-2">Reload</a>
