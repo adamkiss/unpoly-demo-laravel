@@ -2,11 +2,9 @@
 @import 'bootstrap';
 @import 'unpoly';
 
-@import url(https://fonts.bunny.net/css?family=roboto:400,500|roboto-mono:400);
-
 :root {
-	--bs-font-sans-serif: 'Roboto', sans-serif;
-	--bs-font-monospace: 'Roboto Mono', monospace;
+	--bs-font-sans-serif: var(--font-sans);
+	--bs-font-monospace: var(--font-mono);
 
 	--tour-dot-color: #28a745;
 	--popup-spacing: 12px;
@@ -201,7 +199,6 @@ up-modal-content {
 
 .task-item--text {
 	flex: 1 1 0;
-	padding: $btn-padding-y 0;
 }
 
 .task-item--edit {
@@ -215,7 +212,7 @@ up-modal-content {
 }
 
 .task.-dropping {
-	border-bottom-color: $primary !important;
+	border-bottom-color: var(--bs-primary) !important;
 	border-bottom-width: 3px;
 	margin-bottom: -2px;
 }
@@ -265,7 +262,7 @@ up-modal-content {
 	bottom: 0;
 	left: 0;
 	width: 100vw;
-	border-top: 1px solid $gray-500 var(--cs);
+	border-top: 1px solid var(--bs-gray-400);
 	box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 	display: flex;
 	gap: 0.6rem 1.7rem;
@@ -513,16 +510,15 @@ up-modal-content {
 	}
 }
 
-$search-active-stripe-color: rgba(200, 230, 255, 0.3);
-
 input[type=search].up-active {
+	--search-stripe-color: rgba(200, 230, 255, 0.3);
 	background-image:
 		repeating-linear-gradient(
 				-45deg,
 				transparent,
 				transparent 1rem,
-				$search-active-stripe-color 1rem,
-				$search-active-stripe-color 2rem
+				var(--search-stripe-color) 1rem,
+				var(--search-stripe-color) 2rem
 		);
 	background-size: 2000% 2000%;
 	animation: barberpole 200s linear infinite;

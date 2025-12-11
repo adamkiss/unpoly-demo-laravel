@@ -4,4 +4,5 @@ This is a demo of [Unpoly](https://unpoly.com), a JavaScript library for progres
 
 ## Known Issues
 
-- `New project -> Create new company -> Accept` doesn't reload the "new project: company" select
+- When creating a new company during creation of a project, the company select isn't updated with just the company you've just created
+- From time to time, `#index-placeholder` is reported missing 🤷🏻‍♂️

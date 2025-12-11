@@ -52,7 +52,8 @@ up.compiler('.fragment-explainer', function(container) {
 
     up.on('up:link:follow up:form:submit', ({ renderOptions }) => {
       let method = up.util.normalizeMethod(renderOptions.method)
-      requestExplainer.innerText = `${method} ${renderOptions.url}`
+	  const uri = renderOptions.url.replace(window.location.origin, '')
+      requestExplainer.innerText = `${method} ${uri}`
     }),
 
     up.on('up:fragment:loaded', ({ request, response, revalidating }) => {

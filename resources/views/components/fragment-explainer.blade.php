@@ -6,7 +6,7 @@
 		(<a href="#" class="fragment-explainer--reveal">reveal</a>)
 	</div>
 
-	<div class="fragment-explainer--cell">
+	<div class="fragment-explainer--cel d-none">{{-- I'm too lazy to match convert the rails fragment-explainer  --}}
 		<div class="fragment-explainer--label">Server-side code:</div>
 		<div class="fragment-explainer--server-code" up-hungry up-if-layer="any">
 			<a href="<%= fragment_explainer.controller_github_url %>" target="_blank" title="<%= fragment_explainer.controller_short_path %>">Controller</a>
@@ -15,9 +15,9 @@
 		</div>
 	</div>
 
-	<div class="fragment-explainer--cell d-none">
+	<div class="fragment-explainer--cell">{{-- Here's a last request instead --}}
 		<div class="fragment-explainer--label">Last request:</div>
-		<code class="fragment-explainer--request">GET {{ request()->path() }}</code>
+		<code class="fragment-explainer--request">GET /{{ request()->path() }}</code>
 	</div>
 
 	<div class="fragment-explainer--cell">

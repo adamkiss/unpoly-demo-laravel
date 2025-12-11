@@ -22,7 +22,7 @@
 						<p>Unpoly links can update arbitrary fragments, identified by CSS selectors. The default selector is the <code>&lt;main&gt;</code> element.</p>
 					</x-tour-dot>
 				</span>
-				<a href="{{ route('companies.index') }}" class="nav-item nav-link" up-follow up-alias="/companies/*" up-placeholder="#index-placeholder">Companies</a>
+				<a href="{{ route('companies.index') }}" class="nav-item nav-link" up-follow up-alias="/companies/*" up-placeholder="#index-placeholder { rows: 5 }">Companies</a>
 				<a href="{{ route('projects.index') }}" class="nav-item nav-link" up-follow up-alias="/projects/*" up-placeholder="#index-placeholder">Projects</a>
 				<a href="{{ route('tasks.index') }}" class="nav-item nav-link" up-follow up-alias="/tasks/*" up-placeholder="#index-placeholder">Tasks</a>
 			</div>

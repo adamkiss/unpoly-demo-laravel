@@ -11,8 +11,15 @@ class CompanyController extends Controller {
 	 * Display a listing of the resource.
 	 */
 	public function index() {
+		$q = request()->query('query', null);
+		$companies = strlen($q ?? '') > 0
+			? Company::where('name', 'like', "%{$q}%")
+				->orWhere('address', 'like',  "%{$q}%")
+				->get()
+			: Company::all();
+
 		return view('companies.index', [
-			'companies' => Company::all(),
+			'companies' => $companies,
 		]);
 	}
 
@@ -96,6 +103,7 @@ class CompanyController extends Controller {
 	public function destroy(Company $company) {
 		$company->delete();
 
+		/** @disregard P1013 Undefined method */
 		return request()->up()->is()
 			? response()->withUnpolyEvents(
 				events: [
@@ -106,6 +114,9 @@ class CompanyController extends Controller {
 			: redirect()->route('companies.index');
 	}
 
+	/**
+	 * Validate has to be separated, so we can provide live validation without submission, unlike original Rails implementation
+	 */
 	public function validate(Request $request, ?Company $ignore = null): array {
 		$validated = $request->validate([
 			'name' => 'required|string|max:255|unique:companies,name'
